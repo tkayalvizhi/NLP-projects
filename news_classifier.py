@@ -4,6 +4,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from sklearn.metrics import accuracy_score
 from torch.utils.data import DataLoader
+from tqdm import tqdm_notebook
 
 from news_vocabulary_vectorizer_dataset import NewsDataset
 from utilities import *
