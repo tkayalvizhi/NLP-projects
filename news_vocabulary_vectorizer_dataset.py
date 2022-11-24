@@ -5,8 +5,10 @@ from collections import Counter
 import numpy as np
 import pandas as pd
 from torch.utils.data import Dataset, DataLoader
+import nltk
+from nltk.corpus import stopwords
 
-
+stop_words = set(stopwords.words('english'))
 # --------------------------------------------------------------------------------
 #
 #                                    VOCABULARY
@@ -155,7 +157,7 @@ class NewsVectorizer:
 
         def count_words(words, w_c):
             for w in words.split(" "):
-                if w not in string.punctuation:
+                if (w not in string.punctuation) and (w not in stop_words):
                     w_c[w] += 1
             return w_c
 
